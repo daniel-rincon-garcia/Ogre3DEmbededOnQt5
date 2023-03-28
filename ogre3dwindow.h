@@ -1,7 +1,8 @@
 #ifndef OGRE3DWINDOW_H
 #define OGRE3DWINDOW_H
 
-#include <QWindow>
+#include <QtGui>
+#include <QScopedPointer>
 
 class Ogre3DApplication;
 
@@ -75,7 +76,6 @@ public:
      * @brief init. Inits the ApplicationContextQt and the scene objects by creating the needed Ogre 3D objects.
      */
     void init();
-    void resizeEvent(QResizeEvent *event);
     /**
      * @brief startRendering. Starts the rendering by calling to the Ogre 3D startRendering primitive.
      */

@@ -41,7 +41,12 @@ void Ogre3DApplication::resize(QSize size)
         m_renderWindow->resize(size.width(), size.height());
     }
 }
-
+void Ogre3DApplication::renderOneFrame()
+{
+    m_renderWindow->windowMovedOrResized();
+    m_root->renderOneFrame();
+    m_renderWindow->update();
+}
 void Ogre3DApplication::setup()
 {
     // do not forget to call the base first
