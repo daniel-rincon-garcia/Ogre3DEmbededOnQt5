@@ -5,9 +5,6 @@
 
 class Ogre3DApplication;
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class Ogre3DWindow; }
-QT_END_NAMESPACE
 /**
  * @brief The Ogre3DWindow class. This class inherits from QWindow and is used as base to use the Ogre 3D objects.
  * Further explanation: Reasons for using QWindow over QWidget
@@ -85,7 +82,6 @@ public:
     void startRendering();
 
 private:
-    Ui::Ogre3DWindow *ui;
     /**
      * @brief m_ogre3DApplication. The Ogre 3D core application in charge of rendering.
      */

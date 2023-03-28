@@ -10,7 +10,6 @@ Ogre3DWindow::Ogre3DWindow(QWindow *parent)
 
 Ogre3DWindow::~Ogre3DWindow()
 {
-    delete ui;
     delete m_ogre3DApplication;
 }
 
