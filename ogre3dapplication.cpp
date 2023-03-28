@@ -3,7 +3,7 @@
 
 Ogre3DApplication::Ogre3DApplication(QWindow *windowToInject): ApplicationContextQt("Tutorial App"), m_windowToInject(windowToInject), m_root(nullptr), m_renderWindow(nullptr)
 {
-    injectMainWindow(windowToInject);
+    injectMainWindow(m_windowToInject);
 }
 
 Ogre3DApplication::~Ogre3DApplication()
@@ -53,27 +53,16 @@ void Ogre3DApplication::setup()
     ApplicationContextQt::setup();
     addInputListener(this);
     m_root = getRoot();
-    //m_root->loadPlugin("RenderSystem_GLES2");//RenderSystem_GL
-    Ogre::RenderSystem* rs = m_root->getRenderSystemByName("OpenGL Rendering Subsystem");//OpenGL ES 2.x Rendering Subsystem
+    Ogre::RenderSystem* rs = m_root->getRenderSystemByName("OpenGL Rendering Subsystem");
     m_root->setRenderSystem(rs);
-    //rs->setConfigOption("Full Screen", "No");
-    //rs->setConfigOption("Video Mode", "800 x 600 @ 32-bit colour");
     Ogre::NameValuePairList params;
     params["externalWindowHandle"] = Ogre::StringConverter::toString(reinterpret_cast<size_t>(m_windowToInject->winId()));
-    //params["sRGB"] = "true";
-    //params["currentGLContext"] = "true";
-    //params["glEsVersion"] = "2";
     m_renderWindow = m_root->createRenderWindow("QT Window", m_windowToInject->width(), m_windowToInject->height(), false, &params);
     m_renderWindow->setVisible(true);
-    //m_renderWindow->setVSyncEnabled(true);
-    //m_renderWindow->setVSyncInterval(0);
     Ogre::SceneManager* scnMgr = m_root->createSceneManager();
     m_renderWindow->setActive(true);
-    // register our scene with the RTSS
-    /*Ogre::RTShader::ShaderGenerator* shadergen = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
-    shadergen->addSceneManager(scnMgr);
-    shadergen->setTargetLanguage("glsles"); // Selecciona el lenguaje para el que se generarán los shaders.
-    mShaderGenerator->setShaderCachePath("./shader_cache/"); // Especifica la ruta donde se guardará la caché de shaders generados.*/
+    m_renderWindow->setFullscreen(false, m_windowToInject->width(), m_windowToInject->height());
+
     // -- tutorial section start --
     //! [turnlights]
     scnMgr->setAmbientLight(Ogre::ColourValue(0.5, 0.5, 0.5));
