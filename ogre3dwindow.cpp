@@ -1,7 +1,7 @@
 #include "ogre3dwindow.h"
 #include "ogre3dapplication.h"
 #include <QResizeEvent>
-#include <iostream>
+
 Ogre3DWindow::Ogre3DWindow(QWindow *parent)
     : QWindow(parent), m_backingStore(new QBackingStore(this))
 {
@@ -79,4 +79,3 @@ void Ogre3DWindow::startRendering()
         m_ogre3DApplication->closeApp();
     }
 }
-
