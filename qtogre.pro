@@ -28,7 +28,7 @@ OgreFolder  = "C:\ogre-13.6.3\build\sdk"
 
 INCLUDEPATH += "$$OgreFolder\include\OGRE" "$$OgreFolder\include\OGRE\Bites" "$$OgreFolder\include\OGRE\RTShaderSystem"
 
-#LIBS     += -L$$OgreFolder\bin -lOgreMain -lOgreBites -lOgreBitesQt -lOgreRTShaderSystem -lRenderSystem_GLES2
+#LIBS     += -L$$OgreFolder\bin -lOgreMain -lOgreBites -lOgreBitesQt -lOgreRTShaderSystem
 LIBS     += -L$$OgreFolder\lib -lOgreMain -lOgreBitesQt -lOgreBites -lOgreRTShaderSystem
 
 # Default rules for deployment.
